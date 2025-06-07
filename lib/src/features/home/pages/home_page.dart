@@ -12,6 +12,7 @@ import 'package:serbizio_ph/src/features/home/pages/register_as_company_page.dar
 import 'package:serbizio_ph/src/features/home/pages/register_as_individual_page.dart';
 import 'package:serbizio_ph/src/utils/constants/colors.dart';
 import 'package:serbizio_ph/src/utils/constants/images.dart';
+import 'package:serbizio_ph/src/utils/data/global.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,29 +27,8 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   StreamSubscription? connection;
 
-  bool isoffline = true;
   int counter = 1;
   int _selectedFilter = 0;
-
-  List<String> images = [
-    "https://images.unsplash.com/photo-1626606076701-cf4ae64b2b03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1332&q=80",
-    "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z29hJTIwYmVhY2h8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
-  ];
-
-  final dynamic filters = [
-    {"category": "Healthcare", "icon": Icons.health_and_safety},
-    {"category": "Education", "icon": Icons.school},
-    {"category": "Food & Beverage", "icon": Icons.food_bank_sharp},
-    {"category": "Construction", "icon": Icons.construction},
-    {"category": "Transportation", "icon": Icons.emoji_transportation},
-    {"category": "Financial Services", "icon": Icons.monetization_on},
-    {"category": "Event Planning", "icon": Icons.event},
-    {"category": "IT & Software Development", "icon": Icons.developer_mode_outlined},
-    {"category": "Real Estate", "icon": Icons.house_outlined},
-    {"category": "Cleaning Services", "icon": Icons.clean_hands},
-    {"category": "Security Services", "icon": Icons.security},
-    {"category": "Automotive Services", "icon": Icons.car_crash},
-  ];
 
   @override
   void initState() {
@@ -308,11 +288,12 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
               child: const Text(
-                "Join the Serbizio Community",
+                'Join the Serbizio Community',
                 style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                  fontFamily: 'Epilogue',
+                  fontSize: 24.0,
+                  fontWeight: FontWeight.bold
+                )
               ),
             ),
           ),
@@ -380,9 +361,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               ],
             ),
           ),
-          const SliverToBoxAdapter(
-            child: Gap(30.0)
-          ),
+          const SliverToBoxAdapter(child: Gap(30.0)),
           SliverToBoxAdapter(
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
@@ -402,13 +381,13 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 height: 50,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: filters.length,
+                  itemCount: Global.filters.length,
                   itemBuilder: (context, index) {
                     return Categorycomp(
                       isSelected: _selectedFilter,
                       index: index,
-                      category: filters[index]["category"],
-                      icon: filters[index]["icon"],
+                      category: Global.filters[index]["category"],
+                      icon: Global.filters[index]["icon"],
                       callBack: _changeCategory
                     );
                   },
@@ -416,15 +395,15 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               ),
             ),
           ),
-          // !isoffline
+          // !Global.isoffline
           //     ? SliverToBoxAdapter(
           //         // child: FutureBuilder(
           //         //   future: HomePlaces.getPlaces(
-          //         //       filters[_selectedFilter]["category"], _countryCode),
+          //         //       Global.filters[_selectedFilter]["category"], _countryCode),
           //         child: StreamBuilder<RealmResultsChanges<Place>>(
           //           stream: realmServices.realm
           //               .query<Place>(
-          //                   "country == '$_countryCode' ${filters[_selectedFilter]["category"] != 'All' ? 'AND category == "${filters[_selectedFilter]['category']}"' : ''} SORT(_id ASC)")
+          //                   "country == '$_countryCode' ${Global.filters[_selectedFilter]["category"] != 'All' ? 'AND category == "${Global.filters[_selectedFilter]['category']}"' : ''} SORT(_id ASC)")
           //               .changes,
           //           builder: (context, snapshot) {
           //             if (snapshot.connectionState == ConnectionState.waiting) {
@@ -477,7 +456,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           //           ),
           //         ),
           //       ),
-          !isoffline
+          !Global.isoffline
               ? const SliverToBoxAdapter(
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -533,11 +512,11 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     ),
                   ),
                 ),
-          // !isoffline
+          // !Global.isoffline
           //     ? StreamBuilder<RealmResultsChanges<Place>>(
           //         stream: realmServices.realm
           //             .query<Place>(
-          //                 "country == '$_countryCode' ${filters[_selectedFilter]["category"] != 'All' ? 'AND category == "${filters[_selectedFilter]['category']}"' : ''} SORT(_id ASC)")
+          //                 "country == '$_countryCode' ${Global.filters[_selectedFilter]["category"] != 'All' ? 'AND category == "${Global.filters[_selectedFilter]['category']}"' : ''} SORT(_id ASC)")
           //             .changes,
           //         builder: (context, snapshot) {
           //           if (snapshot.connectionState == ConnectionState.waiting) {
@@ -636,15 +615,15 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void _onStart() async {
     var result = await Connectivity().checkConnectivity();
     if (result == ConnectivityResult.mobile) {
-        setState(() => isoffline = false);
+        setState(() => Global.isoffline = false);
     } else if (result == ConnectivityResult.wifi) {
-        setState(() => isoffline = false);
+        setState(() => Global.isoffline = false);
     } else if (result == ConnectivityResult.ethernet) {
-        setState(() => isoffline = false);
+        setState(() => Global.isoffline = false);
     } else if (result == ConnectivityResult.bluetooth) {
-        setState(() => isoffline = false);
+        setState(() => Global.isoffline = false);
     } else if (result == ConnectivityResult.none) {
-        setState(() => isoffline = true);
+        setState(() => Global.isoffline = true);
     }
   }
 

@@ -27,7 +27,7 @@ class TeamComp extends StatelessWidget {
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 15),
+        padding: const EdgeInsets.symmetric(vertical: 3, horizontal: 5),
         child: SizedBox(
           height: 250,
           width: 90,
