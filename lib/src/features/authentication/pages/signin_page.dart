@@ -42,7 +42,7 @@ class SigninPage extends StatelessWidget {
                       Align(
                         alignment: Alignment.center,
                         child: Image(
-                          image: const AssetImage(uniparkLogo),
+                          image: const AssetImage(appLogo),
                           height: size.height * 0.07,
                         ),
                       ),
@@ -53,7 +53,7 @@ class SigninPage extends StatelessWidget {
                       ),
                       const Gap(10.0),
                       Text(
-                        'Sign in to start exploring parking inside UiTM',
+                        'Sign in to start exploring service inside UiTM',
                         style: Theme.of(context).textTheme.titleSmall,
                       ),
                     ],
@@ -148,22 +148,6 @@ class SignInFormWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => controller.signInUser(),
                 child: const Text('Sign In'),
-              ),
-            ),
-            const Gap(20.0),
-            Text(
-              'Or',
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            const Gap(20.0),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton.icon(
-                icon: Brand(Brands.google, size:22.0),
-                onPressed: () => controller.googleSignIn(),
-                label: const Text(
-                    'Continue with Google',
-                ),
               ),
             ),
           ],

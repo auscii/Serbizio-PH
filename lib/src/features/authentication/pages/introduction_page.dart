@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:introduction_screen/introduction_screen.dart';
-import 'package:serbizio_ph/src/utils/constants/colors.dart';
-import 'package:serbizio_ph/src/utils/constants/images.dart';
-import 'package:serbizio_ph/src/features/authentication/pages/welcome_page.dart';
-import 'package:serbizio_ph/src/utils/helpers/helper_functions.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var size = HelperFunction.screenSize();
-    final dark = HelperFunction.isDarkMode(context);
-
     return Container(color: Colors.white);
 
     // return Scaffold(
@@ -23,13 +14,13 @@ class IntroductionPage extends StatelessWidget {
     //       PageViewModel(
     //         titleWidget: Center(
     //           child: Text(
-    //             'Real-time parking count availability',
+    //             'Real-time service count availability',
     //             style: Theme.of(context).textTheme.headlineMedium,
     //             textAlign: TextAlign.center,
     //           ),
     //         ),
     //         body:
-    //           'Get an alert notifications and information on parking availability with the RFID technology',
+    //           'Get an alert notifications and information on service availability with the RFID technology',
     //         image: Center(
     //           child: Image(
     //             image: const AssetImage(introOne),
@@ -45,12 +36,12 @@ class IntroductionPage extends StatelessWidget {
     //       PageViewModel(
     //         titleWidget: Center(
     //           child: Text(
-    //             'Find nearest parking inside UiTM',
+    //             'Find nearest service inside UiTM',
     //             style: Theme.of(context).textTheme.headlineMedium,
     //             textAlign: TextAlign.center,
     //           ),
     //         ),
-    //         body: 'Find the nearest parking inside UiTM with the interactive map geotagging and geolocation',
+    //         body: 'Find the nearest service inside UiTM with the interactive map geotagging and geolocation',
     //         image: Center(
     //           child: Image(
     //             image: const AssetImage(introTwo),
@@ -66,12 +57,12 @@ class IntroductionPage extends StatelessWidget {
     //       PageViewModel(
     //         titleWidget: Center(
     //           child: Text(
-    //             'Share available parking information',
+    //             'Share available service information',
     //             style: Theme.of(context).textTheme.headlineMedium,
     //             textAlign: TextAlign.center,
     //           ),
     //         ),
-    //         body: 'Share the available parking information with your friends',
+    //         body: 'Share the available service information with your friends',
     //         image: Center(
     //           child: Image(
     //             image: const AssetImage(introThree),

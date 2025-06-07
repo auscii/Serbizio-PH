@@ -28,7 +28,7 @@ class ReSignInPage extends StatelessWidget {
               children: [
                 Text('Re-Sign In', style: Theme.of(context).textTheme.headlineSmall),
                 const Gap(10.0),
-                Text("It's sad to see you go. By re-sign in to your UniPark@UiTM Account, you're confirm to delete your account.", style: Theme.of(context).textTheme.titleSmall),
+                Text("It's sad to see you go. By re-sign in to your Account, you're confirm to delete your account.", style: Theme.of(context).textTheme.titleSmall),
                 const Gap(30.0),
                 const Text('EMAIL', style: TextStyle(fontWeight: FontWeight.bold)),
                 WTextFormField(

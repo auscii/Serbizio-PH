@@ -37,7 +37,7 @@ class ResetPasswordPage extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: Image(
-                  image: const AssetImage(resetPassword),
+                  image: const AssetImage(appLogo),
                   height: size.height * 0.4,
                 ),
               ),

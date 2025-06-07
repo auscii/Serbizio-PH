@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:provider/provider.dart';
 import 'package:realm/realm.dart';
 import 'package:serbizio_ph/firebase_options.dart';
@@ -25,12 +24,9 @@ Future<void> main() async {
       final anonCredentials = Credentials.anonymous();
       await app.logIn(anonCredentials);
     } catch (e) {
-      print(e);
+      debugPrint(e.toString());
     }
   }
-
-  // GetX Local Storage
-  await GetStorage.init();
 
   // Await splash until other load
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
@@ -40,13 +36,9 @@ Future<void> main() async {
     (FirebaseApp value) => Get.put(AuthenticationRepository())
   );
 
-  //// Initialize Notifications
-  // await NotificationController().initNotification();
-
   // To make sure app always portrait up
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp]
-  // ).then((value) => runApp(const MainApp()));
   ).then((value) => runApp(
     MultiProvider(
       providers: [
@@ -72,8 +64,6 @@ Future<void> main() async {
 
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(

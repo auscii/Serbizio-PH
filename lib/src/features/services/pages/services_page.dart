@@ -64,7 +64,7 @@ class ServicesPage extends StatelessWidget {
 //         if(serviceControlller.listParking.isEmpty) {
 //           return const Center(child: CircularProgressIndicator());
 //         }
-//         return ServiceCard(parking: item);
+//         return ServiceCard(service: item);
 //       },
 //     ),
 //   ));

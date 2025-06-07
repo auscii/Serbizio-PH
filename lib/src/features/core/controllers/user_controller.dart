@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
 import 'package:serbizio_ph/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:serbizio_ph/src/data/repositories/user/user_repository.dart';
@@ -19,7 +18,6 @@ class UserController extends GetxController {
   final verifyPassword = TextEditingController();
   final userRepository = Get.put(UserRepository());
   GlobalKey<FormState> reSignInKey = GlobalKey<FormState>();
-  final _firebaseMessaging = FirebaseMessaging.instance;
 
   @override
   void onInit() {
@@ -42,7 +40,6 @@ class UserController extends GetxController {
   Future<void> saveUserRecord(UserCredential? userCredential) async {
     try {
       // fetch the FCM token for this device
-      final fCMToken = await _firebaseMessaging.getToken();
 
       if (userCredential != null) {
 
@@ -53,7 +50,7 @@ class UserController extends GetxController {
           studentId: 0,
           email: userCredential.user!.email ?? '',
           phone: userCredential.user!.phoneNumber ?? '',
-          deviceToken: fCMToken!,
+          deviceToken: '',
         );
 
         // Save User Data
@@ -72,7 +69,7 @@ class UserController extends GetxController {
 
       if (provider.isNotEmpty) {
         if (provider == 'google.com') {
-          await auth.signInWithGoogle();
+          // await auth.signInWithGoogle();
           await auth.deleteAccount();
           await auth.logout();
         } else if (provider == 'password') {

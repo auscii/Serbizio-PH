@@ -1,10 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 import 'package:serbizio_ph/src/data/repositories/user/user_repository.dart';
-import 'package:serbizio_ph/src/features/authentication/pages/introduction_page.dart';
 import 'package:serbizio_ph/src/features/core/pages/navigation_menu.dart';
 import 'package:serbizio_ph/src/data/repositories/exceptions/firebase_auth_exception.dart';
 
@@ -25,14 +22,11 @@ class AuthenticationRepository extends GetxController {
 
   void screenRedirect() {
     // final user = _auth.currentUser;
-
-    // // if the user is logged in
     // if (user != null) {
     //   Get.offAll(() => const NavigationMenu()); // redirect to HomePage
     // } else {
     //   Get.offAll(() => const IntroductionPage()); // redirect to IntroductionPage
     // }
-
     Get.offAll(() => const NavigationMenu());
   }
 
@@ -58,30 +52,6 @@ class AuthenticationRepository extends GetxController {
     }
   }
 
-  // Sign In with Google
-  Future<UserCredential?> signInWithGoogle() async {
-    try {
-      // Trigger the authentication flow
-      final GoogleSignInAccount? userAccount = await GoogleSignIn().signIn();
-
-      // Obtain the auth details from request
-      final GoogleSignInAuthentication? googleAuth = await userAccount?.authentication;
-
-      // Create a new credential
-      final credentials = GoogleAuthProvider.credential(accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
-
-      // Once signed in, return the UserCredential
-      return await _auth.signInWithCredential(credentials);
-
-    } on FirebaseAuthException catch(e) {
-      throw TFirebaseAuthException(e.code).message;
-    } catch (e) {
-      // throw 'Something went wrong. Please try again.';
-      if (kDebugMode) print('Something went wrong: $e');
-      return null;
-    }
-  }
-
   // Forgot Password
   Future<void> sendEmailResetPassword(String email) async {
     try {
@@ -96,7 +66,6 @@ class AuthenticationRepository extends GetxController {
   // Log Out
   Future<void> logout() async {
     try {
-      await GoogleSignIn().signOut();
       await _auth.signOut();
     } on FirebaseAuthException catch(e) {
       throw TFirebaseAuthException(e.code).message;

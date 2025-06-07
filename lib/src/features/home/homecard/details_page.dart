@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:like_button/like_button.dart';
 import 'package:serbizio_ph/src/features/home/homecard/place_detail_page.dart';
 
 class DetailScreen extends StatefulWidget {
@@ -29,20 +27,20 @@ class _DetailScreenState extends State<DetailScreen> {
                 Icons.share,
                 color: Colors.black,
               )),
-          Padding(
-            padding: const EdgeInsets.only(top: 4, left: 5, right: 15),
-            child: LikeButton(
-              size: 27,
-              likeBuilder: (isLiked) {
-                return Icon(
-                  // FontAwesomeIcons.solidHeart,
-                  Icons.favorite,
-                  color: Colors.black,
-                  size: 26,
-                );
-              },
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(top: 4, left: 5, right: 15),
+          //   child: LikeButton(
+          //     size: 27,
+          //     likeBuilder: (isLiked) {
+          //       return const Icon(
+          //         // FontAwesomeIcons.solidHeart,
+          //         Icons.favorite,
+          //         color: Colors.black,
+          //         size: 26,
+          //       );
+          //     },
+          //   ),
+          // ),
         ],
       ),
       body: Placedetailpage(data: data),

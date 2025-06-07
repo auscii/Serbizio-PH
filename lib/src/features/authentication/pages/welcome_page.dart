@@ -16,7 +16,6 @@ class WelcomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = HelperFunction.screenSize();
     final dark = HelperFunction.isDarkMode(context);
-
     return Scaffold(
       body: ColorfulSafeArea(
         color: Colors.transparent,
@@ -29,12 +28,8 @@ class WelcomePage extends StatelessWidget {
                 children: [
                   const Gap(80.0 - 50.0),
                   Image(
-                    image: const AssetImage(uniparkLogo),
+                    image: const AssetImage(appLogo),
                     height: size.height * 0.05,
-                  ),
-                  Image(
-                    image: const AssetImage(welcome),
-                    height: size.height * 0.4,
                   ),
                   Align(
                     alignment: Alignment.centerLeft,

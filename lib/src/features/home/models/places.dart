@@ -1,7 +1,4 @@
 // import 'dart:convert';
-import 'package:realm/realm.dart';
-import '../realm/schemas.dart';
-
 // Placesmodel placesFromJson(String str) => Placesmodel.fromJson(json.decode(str));
 
 // String placesToJson(Placesmodel data) => json.encode(data.toJson());

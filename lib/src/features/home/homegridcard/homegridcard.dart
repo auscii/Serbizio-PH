@@ -1,16 +1,9 @@
 import 'dart:ui';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:serbizio_ph/src/utils/constants/colors.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:serbizio_ph/src/features/home/homecard/details_page.dart';
-import 'package:serbizio_ph/src/features/home/models/places.dart';
 
 class Homegridcardcomp extends StatefulWidget {
-  const Homegridcardcomp({super.key, data}) : _data = data;
-  final Placesmodel _data;
-
+  const Homegridcardcomp({super.key, data});
   @override
   State<Homegridcardcomp> createState() => _HomegridcardcompState();
 }
@@ -35,7 +28,7 @@ class _HomegridcardcompState extends State<Homegridcardcomp> {
               sigmaX: 10,
               sigmaY: 10,
             ),
-            child: SizedBox(
+            child: const SizedBox(
               height: 360,
               child: Column(
                 children: [

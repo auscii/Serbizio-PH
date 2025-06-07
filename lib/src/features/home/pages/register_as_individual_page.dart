@@ -76,6 +76,15 @@ class RegisterFormWidget extends StatelessWidget {
         key: controller.registerFormKey,
         child: Column(
           children: [
+            // WTextFormField(
+            //   controller: controller.ownerName,
+            //   keyboardType: TextInputType.text,
+            //   validator: (value) => Validations.validateEmptyText('Owner name', value),
+            //   hintText: 'Enter Name',
+            //   obscureText: false,
+            //   enableSuggestions: false,
+            //   autocorrect: false,
+            // ),
             WTextFormFieldOutline(
               controller: controller.name,
               keyboardType: TextInputType.text,

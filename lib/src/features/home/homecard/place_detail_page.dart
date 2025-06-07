@@ -1,19 +1,6 @@
-import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:provider/provider.dart';
-import 'package:realm/realm.dart';
 import 'package:serbizio_ph/src/utils/constants/colors.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:serbizio_ph/src/features/home/homecard/imagecarousel/carousel.dart';
-// import 'package:travel_app/components/bookingall/booking.dart';
-// import 'package:travel_app/components/imagecarousel/carousel.dart';
-// import 'package:travel_app/components/widget/snakbar.dart';
 import 'package:serbizio_ph/src/features/home/models/places.dart';
-import '../realm/realm_services.dart';
 
 class Placedetailpage extends StatefulWidget {
   const Placedetailpage({super.key, data}) : _data = data;
@@ -58,7 +45,6 @@ class _PlacedetailpageState extends State<Placedetailpage> {
 
   @override
   Widget build(BuildContext context) {
-    var realmProvider = Provider.of<RealmServices>(context);
     return Scaffold(
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

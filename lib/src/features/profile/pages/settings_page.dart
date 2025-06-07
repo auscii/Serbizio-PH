@@ -100,11 +100,11 @@ class SettingsPage extends StatelessWidget {
                       context: context,
                       applicationName: profileController.appInfo.value.appName,
                       applicationVersion: '${profileController.appInfo.value.version} (${profileController.appInfo.value.buildNumber})',
-                      applicationLegalese: 'UniPark@UiTM: UiTM Parking Finder Mobile Application\n\n© ${DateTime.now().year} syhrzkwn.dev',
+                      applicationLegalese: 'Serbizio PH Mobile Application\n\n© ${DateTime.now().year}',
                       applicationIcon: Padding(
                         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
                         child: Image(
-                          image: const AssetImage(uniparkLogo),
+                          image: const AssetImage(appLogo),
                           height: size.height * 0.05,
                         ),
                       ),

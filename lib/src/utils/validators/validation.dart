@@ -8,18 +8,6 @@ class Validations {
     return null;
   }
 
-  static String? validateStudentId(String? value) {
-    if (value == null || value.isEmpty) {
-      return 'Student ID is required';
-    }
-
-    if (value.length < 10) {
-      return 'Student ID must be 10 digits';
-    }
-
-    return null;
-  }
-
   static String? validateEmail(String? value) {
     final emailRegExp = RegExp(r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,5}))$');
 

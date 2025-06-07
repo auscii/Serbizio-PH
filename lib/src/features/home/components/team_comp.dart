@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:shimmer/shimmer.dart';
 
 class TeamComp extends StatelessWidget {
   const TeamComp({
@@ -12,13 +10,13 @@ class TeamComp extends StatelessWidget {
     required teamPosition
   }) :
   _teamName = teamName,
-  _teamProfileImageURL = teamProfileImageURL,
-  _teamMotto = teamMotto,
+  // _teamProfileImageURL = teamProfileImageURL,
+  // _teamMotto = teamMotto,
   _teamPosition = teamPosition;
 
-  final String _teamProfileImageURL;
+  // final String _teamProfileImageURL;
   final String _teamName;
-  final String _teamMotto;
+  // final String _teamMotto;
   final String _teamPosition;
 
   @override
@@ -41,40 +39,40 @@ class TeamComp extends StatelessWidget {
             //   backgroundImage: NetworkImage(_teamProfileImageURL)
             // ),
 
-            CachedNetworkImage(
-              imageUrl: _teamProfileImageURL,
-              placeholder: (context, url) {
-                return SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.red,
-                    highlightColor: Colors.yellow,
-                    child: Container(
-                      height: 170,
-                      color: Colors.white24,
-                    ),
-                  ),
-                );
-              },
-              errorWidget: (context, url, error) {
-                return SizedBox(
-                  width: 150,
-                  height: 150,
-                  child: Shimmer.fromColors(
-                    baseColor: Colors.red,
-                    highlightColor: Colors.yellow,
-                    child: Container(
-                      height: 170,
-                      color: Colors.white24,
-                    ),
-                  ),
-                );
-              },
-              width: 150,
-              height: 150,
-              fit: BoxFit.cover,
-            ),
+            // CachedNetworkImage(
+            //   imageUrl: _teamProfileImageURL,
+            //   placeholder: (context, url) {
+            //     return SizedBox(
+            //       width: 150,
+            //       height: 150,
+            //       child: Shimmer.fromColors(
+            //         baseColor: Colors.red,
+            //         highlightColor: Colors.yellow,
+            //         child: Container(
+            //           height: 170,
+            //           color: Colors.white24,
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   errorWidget: (context, url, error) {
+            //     return SizedBox(
+            //       width: 150,
+            //       height: 150,
+            //       child: Shimmer.fromColors(
+            //         baseColor: Colors.red,
+            //         highlightColor: Colors.yellow,
+            //         child: Container(
+            //           height: 170,
+            //           color: Colors.white24,
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   width: 150,
+            //   height: 150,
+            //   fit: BoxFit.cover,
+            // ),
             const Gap(5.0),
             Text(
               _teamPosition,

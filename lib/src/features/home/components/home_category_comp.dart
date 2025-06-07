@@ -9,13 +9,11 @@ class Categorycomp extends StatelessWidget {
       required category,
       required icon,
       required callBack})
-      : _isSelected = isSelected,
-        _categoryName = category,
-        _icon = icon,
-        _index = index;
+      : _categoryName = category,
+        _icon = icon;
 
-  final int _isSelected;
-  final int _index;
+  // final int _isSelected;
+  // final int _index;
   final String _categoryName;
   final IconData _icon;
 

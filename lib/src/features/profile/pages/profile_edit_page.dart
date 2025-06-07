@@ -6,7 +6,6 @@ import 'package:serbizio_ph/src/features/core/controllers/user_controller.dart';
 import 'package:serbizio_ph/src/features/profile/pages/delete_account_page.dart';
 import 'package:serbizio_ph/src/features/profile/pages/update_name_page.dart';
 import 'package:serbizio_ph/src/features/profile/pages/update_phone_page.dart';
-import 'package:serbizio_ph/src/features/profile/pages/update_studentid_page.dart';
 import 'package:serbizio_ph/src/utils/constants/colors.dart';
 import 'package:serbizio_ph/src/utils/constants/sizes.dart';
 import 'package:serbizio_ph/src/utils/helpers/helper_functions.dart';
@@ -36,14 +35,6 @@ class ProfileEditPage extends StatelessWidget {
                 title: Text(userController.user.value.name),
                 trailing: Icon(Icons.arrow_forward_ios_outlined, size: 14.0, color: dark ? whiteColor : textColor1),
                 onTap: () {Get.to(() => const UpdateNamePage());},
-              ),
-              const Divider(color: borderColor),
-              const Gap(20.0),
-              const Text('STUDENT ID', style: TextStyle(fontWeight: FontWeight.bold)),
-              ListTile(
-                title: Text(userController.user.value.studentId.toString()),
-                trailing: Icon(Icons.arrow_forward_ios_outlined, size: 14.0, color: dark ? whiteColor : textColor1),
-                onTap: () {Get.to(() => const UpdateStudentIdPage());},
               ),
               const Divider(color: borderColor),
               const Gap(20.0),

@@ -1,16 +1,10 @@
 import 'dart:ui';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:serbizio_ph/src/utils/constants/colors.dart';
-import 'package:shimmer/shimmer.dart';
-import 'package:serbizio_ph/src/features/home/homecard/details_page.dart';
-import 'package:serbizio_ph/src/features/home/models/places.dart';
 
 class Homecardcomp extends StatelessWidget {
-  const Homecardcomp({super.key, required data}) : _data = data;
-  final Placesmodel _data;
-
+  const Homecardcomp({super.key, required data});
+  
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -30,7 +24,7 @@ class Homecardcomp extends StatelessWidget {
               sigmaX: 10,
               sigmaY: 10,
             ),
-            child: SizedBox(
+            child: const SizedBox(
               height: 260,
               width: 270,
               child: Column(

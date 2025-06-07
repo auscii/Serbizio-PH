@@ -6,7 +6,6 @@ import 'package:icons_plus/icons_plus.dart';
 import 'package:serbizio_ph/src/utils/constants/colors.dart';
 import 'package:serbizio_ph/src/utils/constants/sizes.dart';
 import 'package:serbizio_ph/src/features/authentication/controllers/register_controller.dart';
-import 'package:serbizio_ph/src/features/authentication/controllers/signin_controller.dart';
 import 'package:serbizio_ph/src/features/authentication/pages/signin_page.dart';
 import 'package:serbizio_ph/src/utils/helpers/helper_functions.dart';
 import 'package:serbizio_ph/src/utils/validators/validation.dart';
@@ -88,7 +87,6 @@ class RegisterFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final controller = Get.put(RegisterController());
-    final controller1 = Get.put(SignInController());
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: formHeight - 10.0),
@@ -105,18 +103,6 @@ class RegisterFormWidget extends StatelessWidget {
               validator: (value) => Validations.validateEmptyText('Name', value),
               labelText: 'Name',
               hintText: 'Name',
-            ),
-            const Gap(10.0),
-            WTextFormFieldOutline(
-              controller: controller.studentId,
-              keyboardType: TextInputType.number,
-              obscureText: false,
-              enableSuggestions: false,
-              autocorrect: false,
-              validator: (value) => Validations.validateStudentId(value),
-              labelText: 'Student ID',
-              hintText: '2021234567',
-              maxLength: 10,
             ),
             const Gap(10.0),
             WTextFormFieldOutline(
@@ -163,22 +149,6 @@ class RegisterFormWidget extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => controller.registerUser(),
                 child: const Text('Register'),
-              ),
-            ),
-            const Gap(20.0),
-            Text(
-              'Or',
-              style: Theme.of(context).textTheme.titleSmall,
-            ),
-            const Gap(20.0),
-            SizedBox(
-              width: double.infinity,
-              child: OutlinedButton.icon(
-                icon: Brand(Brands.google, size:22.0),
-                onPressed: () => controller1.googleSignIn(),
-                label: const Text(
-                  'Continue with Google',
-                ),
               ),
             ),
           ],

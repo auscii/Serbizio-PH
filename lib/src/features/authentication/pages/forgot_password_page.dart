@@ -29,7 +29,7 @@ class ForgotPasswordPage extends StatelessWidget {
               Align(
                 alignment: Alignment.center,
                 child: Image(
-                  image: const AssetImage(forgotPassword),
+                  image: const AssetImage(appLogo),
                   height: size.height * 0.4,
                 ),
               ),
