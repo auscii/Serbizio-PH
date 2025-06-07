@@ -1,0 +1,13 @@
+const String uniparkLogo = "assets/images/unipark_logo.png";
+const String welcome = "assets/images/welcome.png";
+const String introOne = "assets/images/intro_1.png";
+const String introTwo = "assets/images/intro_2.png";
+const String introThree = "assets/images/intro_3.png";
+const String forgotPassword = "assets/images/forgot_password.png";
+const String resetPassword = "assets/images/reset_password.png";
+const String emptyInbox = "assets/images/empty_inbox.png";
+const String mapMarker = "assets/images/map_marker.png";
+const String googleApp = "assets/images/google_map.png";
+const String wazeApp = "assets/images/waze.png";
+const String noRfid = "assets/images/no_rfid.png";
+const String locationDenied = "assets/images/location_denied.png";
