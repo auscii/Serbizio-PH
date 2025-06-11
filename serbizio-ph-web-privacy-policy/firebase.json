@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "public",
+    "site": "serbizio-ph-privacy-policy",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

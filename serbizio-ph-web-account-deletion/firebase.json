@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "public",
+    "site": "account-user-deletion",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

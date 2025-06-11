@@ -1,0 +1,155 @@
+import 'package:colorful_safe_area/colorful_safe_area.dart';
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:icons_plus/icons_plus.dart';
+import 'package:serbizio_ph/src/utils/constants/colors.dart';
+import 'package:serbizio_ph/src/utils/constants/images.dart';
+import 'package:serbizio_ph/src/utils/constants/sizes.dart';
+import 'package:serbizio_ph/src/features/authentication/controllers/signin_controller.dart';
+import 'package:serbizio_ph/src/features/authentication/pages/forgot_password_page.dart';
+import 'package:serbizio_ph/src/utils/helpers/helper_functions.dart';
+import 'package:serbizio_ph/src/utils/validators/validation.dart';
+import 'package:serbizio_ph/src/utils/widgets/textformfield_outline_widget.dart';
+
+class SigninPage extends StatelessWidget {
+  const SigninPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    var size = HelperFunction.screenSize();
+    final dark = HelperFunction.isDarkMode(context);
+
+    return Scaffold(
+      body: ColorfulSafeArea(
+        color: Colors.transparent,
+        overflowRules: const OverflowRules.all(true),
+        child: SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: size.height,
+            ),
+            child: Container(
+              padding: const EdgeInsets.all(defaultSize),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Gap(60.0),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Image(
+                          image: const AssetImage(appLogo),
+                          height: size.height * 0.07,
+                        ),
+                      ),
+                      const Gap(60.0),
+                      Text(
+                        'Sign In',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      const Gap(10.0),
+                      Text(
+                        'Sign in to start exploring service inside UiTM',
+                        style: Theme.of(context).textTheme.titleSmall,
+                      ),
+                    ],
+                  ),
+                  const SignInFormWidget(),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      TextButton(
+                        onPressed: () {},
+                        child: Text.rich(
+                          TextSpan(text: "Don't have an account? ", style: Theme.of(context).textTheme.titleSmall,
+                            children: [
+                              TextSpan(text: "Register", style: TextStyle(color: dark ? whiteColor : primaryColor, fontWeight: FontWeight.w600)),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SignInFormWidget extends StatelessWidget {
+  const SignInFormWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final controller = Get.put(SignInController());
+    final dark = HelperFunction.isDarkMode(context);
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: formHeight - 10.0),
+      child: Form(
+        key: controller.signInFormKey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            WTextFormFieldOutline(
+              controller: controller.email,
+              keyboardType: TextInputType.emailAddress,
+              obscureText: false,
+              enableSuggestions: false,
+              autocorrect: false,
+              validator: (value) => Validations.validateEmptyText('Email', value),
+              labelText: 'Email',
+              hintText: 'Email',
+            ),
+            const Gap(10.0),
+            Obx(
+              () => WTextFormFieldOutline(
+                controller: controller.password,
+                obscureText: controller.hidePassword.value,
+                enableSuggestions: false,
+                autocorrect: false,
+                validator: (value) => Validations.validateEmptyText('Password', value),
+                labelText: 'Password',
+                hintText: 'Password',
+                suffixIcon: IconButton(
+                  onPressed: () => controller.hidePassword.value = !controller.hidePassword.value,
+                  icon: Icon(controller.hidePassword.value ? MingCute.eye_close_line : MingCute.eye_2_line),
+                ),
+              ),
+            ),
+            const Gap(10.0),
+            Align(
+              alignment: Alignment.centerRight,
+              child: TextButton(
+                onPressed: () {
+                  Get.to(() => const ForgotPasswordPage());
+                },
+                child: Text(
+                  'Forgot password?',
+                  style: TextStyle(color: dark ? whiteColor : primaryColor, fontSize: 14.0, fontWeight: FontWeight.w600),
+                ),
+              ),
+            ),
+            const Gap(10.0),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () => controller.signInUser(),
+                child: const Text('Sign In'),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
