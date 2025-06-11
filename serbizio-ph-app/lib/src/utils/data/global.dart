@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Global {
 
   static final dynamic filters = [
-    {"category": "Healthcare", "icon": Icons.health_and_safety},
+    // {"category": "Healthcare", "icon": Icons.health_and_safety},
     {"category": "Education", "icon": Icons.school},
     {"category": "Food & Beverage", "icon": Icons.food_bank_sharp},
     {"category": "Construction", "icon": Icons.construction},

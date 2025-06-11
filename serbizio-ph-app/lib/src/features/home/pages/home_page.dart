@@ -6,7 +6,6 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:serbizio_ph/src/data/repositories/user/user_repository.dart';
 import 'package:serbizio_ph/src/features/home/components/home_category_comp.dart';
-import 'package:serbizio_ph/src/features/home/components/team_comp.dart';
 import 'package:serbizio_ph/src/features/home/components/services_horizontal.dart';
 import 'package:serbizio_ph/src/features/home/components/top_places_loading.dart';
 import 'package:serbizio_ph/src/features/home/controllers/home_controller.dart';
@@ -489,36 +488,36 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                     scrollDirection: Axis.horizontal,
                     child: Row(
                       children: [
+                        // ServicesHorizontalView(
+                        //   image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTilViDFdYbcu8CrYEXhMU_7nr1DpQfzevXIQ&s",
+                        //   serviceName: "Healthcare",
+                        //   subTitle: "Access medical professionals and healthcare services",
+                        //   tag: "Healthcare",
+                        //   icon: Icons.health_and_safety
+                        // ),
                         ServicesHorizontalView(
-                          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTilViDFdYbcu8CrYEXhMU_7nr1DpQfzevXIQ&s",
-                          serviceName: "Healthcare",
-                          subTitle: "Access medical professionals and healthcare services",
-                          tag: "Healthcare",
-                          icon: Icons.health_and_safety
-                        ),
-                        ServicesHorizontalView(
-                          image: "https://media.istockphoto.com/id/1409722748/photo/students-raising-hands-while-teacher-asking-them-questions-in-classroom.jpg?s=612x612&w=0&k=20&c=NbVChOV9wIbQOhUD6BqpouZHHBbyQ2rkSjaVfIhpMv8=",
+                          image: "$servicesPath/Education.png",
                           serviceName: "Education",
                           subTitle: "Connect with educational institutions",
                           tag: "Education",
                           icon: Icons.school
                         ),
                         ServicesHorizontalView(
-                          image: "https://media.istockphoto.com/id/1428412216/photo/a-male-chef-pouring-sauce-on-meal.jpg?s=612x612&w=0&k=20&c=8U3mrgWsuB7pB8axtGj89MXRkHDKodEli9F6wKgPT4A=",
+                          image: "$servicesPath/Food & Beverage.png",
                           serviceName: "Food & Beverage",
                           subTitle: "Discover catering services for culinary experiences",
                           tag: "Food & Beverage",
                           icon: Icons.food_bank
                         ),
                         ServicesHorizontalView(
-                          image: "https://media.istockphoto.com/id/1456825248/photo/structural-engineer-and-architect-working-with-blueprints-discuss-at-the-outdoors.jpg?s=612x612&w=0&k=20&c=Eg9xbC2aedsbPnnSmkbvMIa-Je431L8K9_cS7FHMB5M=",
+                          image: "$servicesPath/Construction.png",
                           serviceName: "Construction",
                           subTitle: "Find contractors and construction services for residential",
                           tag: "Construction",
                           icon: Icons.construction
                         ),
                         ServicesHorizontalView(
-                          image: "https://media.istockphoto.com/id/506788598/photo/four-lane-controlled-access-highway-in-poland.jpg?s=612x612&w=0&k=20&c=So_ZkLaLn3s3iUf0kFdll6TAcpKpvUUMSlVlWBYkbDU=",
+                          image: "$servicesPath/Transportation.png",
                           serviceName: "Transportation",
                           subTitle: "Access logistics and transportation services for goods delivery",
                           tag: "Transportation",
@@ -590,48 +589,50 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
           //         },
           //         itemCount: 10,
           //       ),
-          SliverToBoxAdapter(
-            child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
-              child: const Text(
-                "Our Team",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ),
-          ),
-          const SliverToBoxAdapter(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Padding(
-                padding: EdgeInsets.only(left: 10, right: 10, top: 5),
-                child: Row(
-                  children: [
-                    TeamComp(
-                      teamProfileImageURL: networkPathURLprofileCEOandCTO,
-                      teamName: "Sean Walden Reyes",
-                      teamMotto: "Committed to driving change and pushing boundaries to achieve excellence in all aspects of our business.",
-                      teamPosition: "CEO & CTO",
-                    ),
-                    TeamComp(
-                      teamProfileImageURL: networkPathURLprofileCMO,
-                      teamName: "Casey Dowling",
-                      teamMotto: "My vision is to foster a culture of innovation that empowers our team to create impactful solutions for our clients.",
-                      teamPosition: "CMO",
-                    ),
-                    TeamComp(
-                      teamProfileImageURL: networkPathURLprofileCFO,
-                      teamName: "Julius Alexander Reyes",
-                      teamMotto: "Believing in the power of collaboration, I strive to connect ideas and people to build a stronger, more resilient company.",
-                      teamPosition: "CFO",
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+
+
+          // SliverToBoxAdapter(
+          //   child: Container(
+          //     margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          //     child: const Text(
+          //       "Our Team",
+          //       style: TextStyle(
+          //         fontSize: 24,
+          //         fontWeight: FontWeight.w500,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          // const SliverToBoxAdapter(
+          //   child: SingleChildScrollView(
+          //     scrollDirection: Axis.horizontal,
+          //     child: Padding(
+          //       padding: EdgeInsets.only(left: 10, right: 10, top: 5),
+          //       child: Row(
+          //         children: [
+          //           TeamComp(
+          //             teamProfileImageURL: networkPathURLprofileCEOandCTO,
+          //             teamName: "Sean Walden Reyes",
+          //             teamMotto: "Committed to driving change and pushing boundaries to achieve excellence in all aspects of our business.",
+          //             teamPosition: "CEO & CTO",
+          //           ),
+          //           TeamComp(
+          //             teamProfileImageURL: networkPathURLprofileCMO,
+          //             teamName: "Casey Dowling",
+          //             teamMotto: "My vision is to foster a culture of innovation that empowers our team to create impactful solutions for our clients.",
+          //             teamPosition: "CMO",
+          //           ),
+          //           TeamComp(
+          //             teamProfileImageURL: networkPathURLprofileCFO,
+          //             teamName: "Julius Alexander Reyes",
+          //             teamMotto: "Believing in the power of collaboration, I strive to connect ideas and people to build a stronger, more resilient company.",
+          //             teamPosition: "CFO",
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
         ],
       ),
     );
