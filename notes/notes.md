@@ -1,6 +1,8 @@
 alias: serbiziokey
 keystore pw: 0111001101100101011100100110001001101001011110100110100101101111001011010111000001101000
 
+command before 
+"java -jar pepk.jar --keystore=upload-keystore.jks --alias=upload --output=output.zip --include-cert --rsa-aes-encryption --encryption-key-path=encryption_public_key.pem"
 
 --- Serbizio PH Credentials
 
